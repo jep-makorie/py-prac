@@ -52,7 +52,7 @@ while True:
   else:
     print("Too low")
 print("Number of attempts: ", count)
-"""
+
 
 sum_of_even=0
 count_of_odd=0
@@ -66,3 +66,58 @@ for number in range(6):
     count_of_odd+=1
 print("Even total:", sum_of_even)
 print("Odd count: ", count_of_odd)
+"""
+
+balance=1000.0
+correct_pin="4821"
+attempt=0
+is_loggedin=False
+
+while attempt<3 :
+  pin=input("Enter your pin: ")
+  attempt+=1
+
+  if pin==correct_pin:
+    is_loggedin=True
+    print("Access granted.")
+    break
+  else:
+    print("Incorrect pin")
+
+if not is_loggedin:
+  print("Account locked")
+
+else:
+  while True:
+    print("1. Check balance")
+    print("2. Deposit")
+    print("3. Withdraw")
+    print("4. Exit")
+
+    option=input("Choose an option:")
+
+    if option=="1":
+      print(f"Balance: ${balance}")
+    elif option=="2":
+      deposit_amount=float(input("How much do you want to deposit? "))
+
+      if deposit_amount>0:
+        balance+=deposit_amount
+        print(f"New balance: ${balance}")
+      else:
+        print("Invalid amount")
+    elif option=="3":
+      withdraw_amount=float(input("How much do you want to withdraw? "))
+
+      if withdraw_amount<=0:
+        print("Invalid amount")
+      elif withdraw_amount>balance:
+        print("Insufficient funds")
+      else:
+        balance-=withdraw_amount
+        print(f"New balance: ${balance}")
+    elif option=="4":
+      print("Goodbye!")
+      break
+    else:
+      print("Invalid option.")
