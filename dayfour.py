@@ -90,3 +90,46 @@ is_student=is_student.lower().strip()
 final_price = movie_checkout(ticket_price, age, is_student)
 
 print(f"Final price: ${final_price}")
+
+def is_freezing(temp):
+  if temp <= 32:
+    return True
+  return False
+def fahrenheit_temp(temp):
+  if is_freezing(temp):
+    return "Freezing conditions"
+  return "Above freezing"
+
+temp_value=float(input("What is the temperature?: "))
+result=fahrenheit_temp(temp_value)
+print(result)
+
+def shipping_cost(weight):
+  if weight<=0:
+    return None
+  elif weight<=2:
+    return 5
+  elif weight<=10:
+    return 10
+  return 18
+def final_checkout(price, weight):
+  if price<=0 or weight<=0:
+    return None
+  shipping=shipping_cost(weight)
+  if shipping is None:
+    return None
+  return price+shipping
+
+valid_input=False
+
+while not valid_input:
+  order=float(input("What is your order total?: "))
+  package_weight=float(input("What is the weight of your package?: "))
+
+  if order>0 and package_weight>0:
+   valid_input=True
+  else:
+    print("Invalid input")
+
+total_cost=final_checkout(order, package_weight)
+print(total_cost)
