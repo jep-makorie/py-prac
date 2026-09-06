@@ -38,7 +38,7 @@ if not is_account_locked:
     print("Incorrect pin")
 else:
   print("Account locked")
-"""
+
 account_balance = 1500.0
 correct_pin = "7392"
 is_account_locked = False
@@ -79,3 +79,79 @@ else:
       print(amount_to_transfer)
   else:
     print("Incorrect pin")
+
+  def multiply(a, b):
+  answer = a * b
+  return answer
+
+result = multiply(6, 4)
+print(result)
+
+def convert_temperature(fahrenheit):
+  if fahrenheit < -459.67:
+    return None
+
+  return (fahrenheit - 32) * 5 / 9
+
+temp=float(input("Enter a temperature:"))
+final_temp=convert_temperature(temp)
+
+if final_temp is None:
+  print("Invalid temperature")
+else:
+  print(final_temp)
+
+def apply_discount(price):
+  return price * 0.8
+
+price = 100
+new_price=apply_discount(price)
+print(new_price)
+
+def count_large(numbers):
+  count = 0
+
+  for number in numbers:
+    if number > 50:
+      count += 1
+
+  return count
+
+result = count_large([20, 70, 90, 10, 100])
+print(result)
+
+def test_ready(hours, assignment_completion):
+  if hours>=5 and assignment_completion>=80:
+    return True
+  return False
+
+hours_studied=float(input("How many hours have you studied?: "))
+completion_status=float(input("What is your percentage assignment completion?: "))
+
+readiness=test_ready(hours_studied, completion_status)
+
+if readiness:
+  print("Ready for exam")
+else:
+  print("More preparation needed")
+
+def average(score1, score2, score3):
+  if 0<=score1<=100 and 0<=score2<=100 and 0<=score3<=100:
+    return (score1+score2+score3)/3
+  return None
+
+score_one=float(input("Enter your first score?: "))
+score_two=float(input("Enter your second score?: "))
+score_three=float(input("Enter your third score?: "))
+
+final_score=average(score_one,score_two,score_three)
+
+if final_score is None:
+  print("Invalid score entered")
+else:
+  print(f"Avarage: {final_score}")
+"""
+
+max_capacity=120
+capacity=93
+is_student=False
