@@ -152,6 +152,47 @@ else:
   print(f"Avarage: {final_score}")
 """
 
+def requirements(age,capacity,max_capacity,tickets):
+  if age>=16 and (capacity+tickets)<=max_capacity and tickets>0:
+    return True
+  return False
+def update_capacity(capacity, max_capacity, tickets):
+  if (capacity+tickets)>max_capacity:
+    return None
+  return capacity+tickets
+
+def student_status(is_student):
+  if is_student=="yes":
+    return 8
+  elif is_student=="no":
+    return 15
+  return None
+def calculate_cost(tickets, is_student):
+  price=student_status(is_student)
+  if price is None:
+    return None
+  return tickets*price
+
 max_capacity=120
 capacity=93
-is_student=False
+
+customer_age=int(input("How old are you?: "))
+buy = int(input("How many tickets: "))
+
+if requirements(customer_age, capacity, max_capacity, buy):
+  status = input("Are you a student?: ").lower().strip()
+
+  final_cost = calculate_cost(buy, status)
+  if final_cost is not None:
+    new_capacity=update_capacity(capacity, max_capacity, buy)
+    if new_capacity is None:
+      print("Registration full.")
+    else:
+      print("Registration successful")
+      print(f"Total cost: ${final_cost}")
+      print(f"Registered attendees: {new_capacity}/{max_capacity}")
+  else:
+    print("Invalid input")
+else:
+  print("You do not meet all the requirements.")
+
