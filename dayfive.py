@@ -150,7 +150,6 @@ if final_score is None:
   print("Invalid score entered")
 else:
   print(f"Avarage: {final_score}")
-"""
 
 def requirements(age,capacity,max_capacity,tickets):
   if age>=16 and (capacity+tickets)<=max_capacity and tickets>0:
@@ -195,4 +194,54 @@ if requirements(customer_age, capacity, max_capacity, buy):
     print("Invalid input")
 else:
   print("You do not meet all the requirements.")
+"""
+"""
+attendees=["Lena","Marcus","Priya","Noah"]
+name=input("Enter your name: ").strip()
 
+if name in attendees:
+  print("Already registered.")
+else:
+  attendees.append(name)
+  print("Registration successful.")
+print(attendees)
+
+readings=[12,-3,7,0,-8,15,4,-1]
+total=0
+count=0
+for reading in readings:
+  if reading>0:
+    total+=reading
+    count+=1
+print(f"Positive total: {total}")
+print(f"Positive readings: {count}")
+
+temperatures=[70,82,65,91,74]
+for index in range(len(temperatures)):
+  if temperatures[index]>80:
+    temperatures[index]-=2
+print(temperatures)
+
+def get_expensive(prices):
+  items=[]
+  for price in prices:
+    if price>20:
+      items.append(price)
+  return items
+
+prices = [12.50, 35.00, 8.75, 22.50, 19.99, 40.00]
+new_list=get_expensive(prices)
+print(new_list)
+
+def analyze_scores(scores):
+  new_score=[]
+  for score in scores:
+    if score>=80:
+      new_score.append(score)
+  return sorted(new_score, reverse=True)
+
+scores = [72, 91, 84, 67, 95, 80, 76]
+newer=analyze_scores(scores)
+print(scores)
+print(newer)
+"""
