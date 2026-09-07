@@ -245,3 +245,36 @@ newer=analyze_scores(scores)
 print(scores)
 print(newer)
 """
+def get_available_product(products):
+  product_list=[]
+  for product in products: 
+      value=product[2]
+      if value>0:
+        name=product[0]
+        product_list.append(name)
+  return product_list
+
+products = [
+    ["keyboard", 45, 6],
+    ["mouse", 20, 0],
+    ["monitor", 180, 3],
+    ["webcam", 35, 8],
+    ["headphones", 60, 0]
+]
+count=0
+prices=[]
+stock=[]
+for product in products:
+  quantity=product[2]
+  expensive=product[1]
+  if quantity==0:
+    count+=1
+  prices.append(expensive)
+  stock.append(quantity)
+
+
+new_products=get_available_product(products)
+print(f"Available products: {new_products}")
+print(f"Out of stock products: {count}")
+print(f"Highest price: ${max(prices)}")
+print(f"Total units in stock: {sum(stock)}")
