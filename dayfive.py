@@ -244,7 +244,7 @@ scores = [72, 91, 84, 67, 95, 80, 76]
 newer=analyze_scores(scores)
 print(scores)
 print(newer)
-"""
+
 def get_available_product(products):
   product_list=[]
   for product in products: 
@@ -278,3 +278,40 @@ print(f"Available products: {new_products}")
 print(f"Out of stock products: {count}")
 print(f"Highest price: ${max(prices)}")
 print(f"Total units in stock: {sum(stock)}")
+"""
+def analyze_orders(orders):
+  completed_customers=[]
+  pending_customers=[]
+  completed_items=0
+  completed_revenue=0
+  largest_completed_order=0
+  for order in orders:
+    if order["status"]=="completed":
+      name=order["customer"]
+      completed_items+=order["quantity"]
+      total_revenue=order["price"]*order["quantity"]
+      completed_revenue+=total_revenue
+      completed_customers.append(name)
+      if total_revenue>largest_completed_order:
+        largest_completed_order=total_revenue
+    elif order["status"]=="pending":
+      name=order["customer"]
+      pending_customers.append(name)
+  return {
+    "completed_customers": completed_customers,
+    "pending_customers": pending_customers,
+    "completed_items": completed_items,
+    "completed_revenue": completed_revenue,
+    "largest_completed_order": largest_completed_order
+  }
+
+orders = [
+    {"customer": "Maya", "item": "Notebook", "quantity": 3, "price": 8, "status": "completed"},
+    {"customer": "James", "item": "Backpack", "quantity": 1, "price": 45, "status": "pending"},
+    {"customer": "Lena", "item": "Pens", "quantity": 5, "price": 3, "status": "completed"},
+    {"customer": "Noah", "item": "Calculator", "quantity": 2, "price": 25, "status": "completed"},
+    {"customer": "Sara", "item": "Folder", "quantity": 4, "price": 5, "status": "pending"}
+]
+
+order_tracking=analyze_orders(orders)
+print(order_tracking)
