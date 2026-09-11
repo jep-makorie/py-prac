@@ -46,4 +46,13 @@ print(coding_club&music_club)
 print(coding_club-music_club)
 print(music_club-coding_club)
 print(coding_club^music_club)
+
+number = int(input("Guess a number dumbo: "))
+rightNo = 17
+
+while number!= rightNo:
+  print("Try harder DUMBO")
+  number = int(input("Guess another number:"))
+
+print("Woooow, I'm surprised you got it")
 """
